@@ -1,0 +1,84 @@
+DATA CLEANING LOG
+======================================================================
+
+SUMMARY:
+----------------------------------------------------------------------
+Original rows: 10
+Cleaned rows: 10
+Rows affected: 5
+
+NORMALIZATION ACTIONS:
+----------------------------------------------------------------------
+1. Phone Format Normalization:
+   - Converted 3 phone numbers to XXX-XXX-XXXX format
+   - Affected rows: [2, 7, 8]
+     Example: Row 2: '(555) 234-5678' → '555-234-5678'
+     Example: Row 7: '555.789.0123' → '555-789-0123'
+     Example: Row 8: '5557890123' → '555-789-0123'
+
+2. Date Format Normalization:
+   - Date of Birth: 1 dates converted to YYYY-MM-DD
+     Affected rows: [3]
+     Example: Row 3: '1975/05/10' → '1975-05-10'
+   - Created Date: 1 dates converted to YYYY-MM-DD
+     Affected rows: [4]
+     Example: Row 4: '01/15/2024' → '2024-01-15'
+
+3. Name Case Normalization:
+   - Applied title case to 1 names
+   - Affected rows: [7]
+     Example: Row 7: 'wilson' → 'Wilson'
+
+MISSING VALUE HANDLING:
+----------------------------------------------------------------------
+- account_status:
+    Missing count: 1
+    Strategy: Filled with "unknown"
+    Affected rows: [3]
+
+- address:
+    Missing count: 1
+    Strategy: Filled with "[UNKNOWN]"
+    Affected rows: [8]
+
+- first_name:
+    Missing count: 1
+    Strategy: Filled with "[UNKNOWN]"
+    Affected rows: [2]
+
+- income:
+    Missing count: 1
+    Strategy: Filled with "0"
+    Affected rows: [2]
+
+- last_name:
+    Missing count: 1
+    Strategy: Filled with "[UNKNOWN]"
+    Affected rows: [4]
+
+VALIDATION RESULTS:
+----------------------------------------------------------------------
+BEFORE CLEANING:
+  - Passed: 3/10 rows (30.0%)
+  - Failed: 7/10 rows (70.0%)
+
+AFTER CLEANING:
+  - Passed: 3/10 rows (30.0%)
+  - Failed: 7/10 rows (70.0%)
+
+STATUS: ⚠ PARTIAL - 7 rows still have issues
+
+REMAINING ISSUES:
+  - first_name: 1 failures
+  - last_name: 1 failures
+  - date_of_birth: 1 failures
+  - address: 2 failures
+  - income: 1 failures
+  - account_status: 2 failures
+  - created_date: 2 failures
+
+OUTPUT:
+----------------------------------------------------------------------
+Cleaned dataset saved to: customers_cleaned.csv
+Total rows: 10
+Total columns: 10

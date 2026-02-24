@@ -4,6 +4,7 @@ Define and apply validation rules to enforce schema constraints
 """
 
 import pandas as pd
+import numpy as np
 import re
 from datetime import datetime
 from collections import defaultdict

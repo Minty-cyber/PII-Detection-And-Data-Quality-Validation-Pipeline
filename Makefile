@@ -6,3 +6,6 @@ pii-detection:
 
 validate-data:
 	python3 /home/jeffmint/PII/src/data_validator.py
+
+clean-data:
+	python3 /home/jeffmint/PII/src/data_cleaner.py
