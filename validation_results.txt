@@ -1,0 +1,103 @@
+VALIDATION RESULTS
+======================================================================
+
+SUMMARY:
+----------------------------------------------------------------------
+Total rows validated: 10
+✓ PASS: 3 rows (30.0%) passed all checks
+✗ FAIL: 7 rows (70.0%) failed validation
+
+⚠️  7 ROWS REQUIRE ATTENTION
+
+FAILURES BY COLUMN:
+----------------------------------------------------------------------
+
+ACCOUNT_STATUS:
+  Total failures: 2
+
+  • Invalid status " 2024-01-11" (valid: active, inactive, suspended)
+    Affected rows: [1]
+    Examples: Row 1: ' 2024-01-11'
+
+  • Empty/NULL (should be one of: active, inactive, suspended)
+    Affected rows: [3]
+    Examples: Row 3: 'nan'
+
+
+ADDRESS:
+  Total failures: 2
+
+  • Too short: 5 chars (min: 10)
+    Affected rows: [1]
+    Examples: Row 1: ' 95000'
+
+  • Empty/NULL (should be non-empty)
+    Affected rows: [8]
+    Examples: Row 8: 'nan'
+
+
+CREATED_DATE:
+  Total failures: 3
+
+  • Empty/NULL (should have valid date)
+    Affected rows: [1]
+    Examples: Row 1: 'nan'
+
+  • Wrong date format (should be YYYY-MM-DD, found %m/%d/%Y)
+    Affected rows: [4]
+    Examples: Row 4: ' 01/15/2024'
+
+  • Invalid date string
+    Affected rows: [9]
+    Examples: Row 9: ' invalid_date'
+
+
+DATE_OF_BIRTH:
+  Total failures: 2
+
+  • Wrong date format (should be YYYY-MM-DD, found %Y/%m/%d)
+    Affected rows: [3]
+    Examples: Row 3: '1975/05/10'
+
+  • Invalid date string
+    Affected rows: [5]
+    Examples: Row 5: ' invalid_date'
+
+
+FIRST_NAME:
+  Total failures: 1
+
+  • Empty/NULL (should be non-empty)
+    Affected rows: [2]
+    Examples: Row 2: 'nan'
+
+
+INCOME:
+  Total failures: 2
+
+  • Non-numeric value:  active
+    Affected rows: [1]
+    Examples: Row 1: ' active'
+
+  • Empty/NULL (should have income value)
+    Affected rows: [2]
+    Examples: Row 2: 'nan'
+
+
+LAST_NAME:
+  Total failures: 1
+
+  • Empty/NULL (should be non-empty)
+    Affected rows: [4]
+    Examples: Row 4: 'nan'
+
+ROWS THAT PASSED ALL CHECKS:
+----------------------------------------------------------------------
+Rows: [0, 6, 7]
+
+ACTION ITEMS:
+----------------------------------------------------------------------
+1. Review failed rows and determine remediation strategy
+2. Clean data (normalize formats, handle missing values)
+3. Re-run validation after cleaning
+4. Document all changes in cleaning log
