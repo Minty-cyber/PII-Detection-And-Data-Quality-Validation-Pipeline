@@ -12,3 +12,6 @@ clean-data:
 
 mask-pii:
 	python3 /home/jeffmint/PII/src/pii_masker.py
+
+pipeline:
+	python3 /home/jeffmint/PII/src/pipeline.py
