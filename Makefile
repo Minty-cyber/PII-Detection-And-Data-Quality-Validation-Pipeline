@@ -9,3 +9,6 @@ validate-data:
 
 clean-data:
 	python3 /home/jeffmint/PII/src/data_cleaner.py
+
+mask-pii:
+	python3 /home/jeffmint/PII/src/pii_masker.py

@@ -1,0 +1,66 @@
+PII MASKING SAMPLE COMPARISON
+================================================================================
+
+BEFORE MASKING (first 3 rows):
+--------------------------------------------------------------------------------
+customer_id,first_name,last_name,email,phone,date_of_birth,address,income,account_status,created_date
+1, John, Doe, john.doe@gmail.com, 555-123-4567,1985-03-15,123 Main St New York NY 10001,75000, active, 2024-01-10
+2, Jane, Smith,jane.smith@company.com, 555-987-6543, 1990-07-22, 95000, active, 2024-01-11,
+3,[UNKNOWN], Johnson, bob.johnson@email.com,555-234-5678,1988-11-08,456 Oak Ave Los Angeles CA 90001,0, suspended, 2024-01-12
+
+AFTER MASKING (first 3 rows):
+--------------------------------------------------------------------------------
+customer_id,first_name,last_name,email,phone,date_of_birth,address,income,account_status,created_date
+1,J***,D**,j***@gmail.com,***-***-4567,1985-**-**,[MASKED ADDRESS],75000, active, 2024-01-10
+2,J***,S****,j***@company.com,***-***-6543,1990-**-**,[MASKED ADDRESS], active, 2024-01-11,
+3,[UNKNOWN],J******,b***@email.com,***-***-5678,1988-**-**,[MASKED ADDRESS],0, suspended, 2024-01-12
+
+MASKING STATISTICS:
+--------------------------------------------------------------------------------
+First names masked: 9
+Last names masked: 9
+Emails masked: 10
+Phone numbers masked: 10
+Addresses masked: 9
+Dates of birth masked: 9
+
+ANALYSIS:
+--------------------------------------------------------------------------------
+✓ Data structure preserved:
+  - Original: 10 rows, 10 columns
+  - Masked: 10 rows, 10 columns
+
+✓ PII protection achieved:
+  - Names: First letter visible, rest masked (e.g., 'John' → 'J***')
+  - Emails: First letter + domain visible (e.g., 'john@gmail.com' → 'j***@gmail.com')
+  - Phones: Last 4 digits visible (e.g., '555-123-4567' → '***-***-4567')
+  - Addresses: Completely masked (e.g., '123 Main St' → '[MASKED ADDRESS]')
+  - DOB: Year visible, month/day masked (e.g., '1985-03-15' → '1985-**-**')
+
+✓ Business data intact:
+  - customer_id: Preserved (needed for analytics)
+  - income: Preserved (financial analysis)
+  - account_status: Preserved (operational data)
+  - created_date: Preserved (temporal analysis)
+
+USE CASE:
+--------------------------------------------------------------------------------
+This masked dataset is safe for:
+  ✓ Analytics teams (aggregate analysis)
+  ✓ Machine learning models (pattern detection)
+  ✓ External vendors (limited PII exposure)
+  ✓ Development/testing environments
+  ✓ GDPR/CCPA compliance (pseudonymization)
+
+This masked dataset is NOT suitable for:
+  ✗ Customer outreach (emails/phones masked)
+  ✗ Identity verification (names masked)
+  ✗ Address validation (addresses masked)
+  ✗ Age-specific analysis (exact DOB masked)
+
+COMPLIANCE NOTES:
+--------------------------------------------------------------------------------
+✓ GDPR Article 32: Technical measures to ensure data security
+✓ GDPR Recital 26: Pseudonymized data still requires protection
+✓ CCPA: De-identification reduces privacy risk
+✓ Best Practice: Principle of data minimization applied
