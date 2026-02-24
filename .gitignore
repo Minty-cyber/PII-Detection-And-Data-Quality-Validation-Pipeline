@@ -1,0 +1,111 @@
+# ----------------------------
+# Python Bytecode
+# ----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ----------------------------
+# C Extensions
+# ----------------------------
+*.so
+
+# ----------------------------
+# Distribution / Packaging
+# ----------------------------
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ----------------------------
+# Virtual Environments
+# ----------------------------
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+penv
+
+# ----------------------------
+# Environment Variables
+# ----------------------------
+.env.*
+!.env.example
+
+# ----------------------------
+# IDE / Editor Files
+# ----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ----------------------------
+# Testing / Coverage
+# ----------------------------
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ----------------------------
+# Type Checkers
+# ----------------------------
+.mypy_cache/
+.pyre/
+.pytype/
+
+# ----------------------------
+# Jupyter Notebook
+# ----------------------------
+.ipynb_checkpoints
+
+# ----------------------------
+# Logs
+# ----------------------------
+*.log
+logs/
+
+# ----------------------------
+# SQLite Database Files
+# ----------------------------
+*.sqlite3
+*.db
+
+# ----------------------------
+# Docker
+# ----------------------------
+*.pid
+docker-compose.override.yml
+
+# ----------------------------
+# OS Generated Files
+# ----------------------------
+Thumbs.db

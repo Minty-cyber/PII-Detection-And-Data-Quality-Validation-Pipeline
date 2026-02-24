@@ -1,0 +1,17 @@
+# PII Detection & Data Quality Pipeline - Python Dependencies
+
+# Core data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Data validation (will use in Part 3)
+pandera>=0.17.0
+
+# Date/time handling
+python-dateutil>=2.8.2
+
+# Optional: Great Expectations for advanced validation
+# great-expectations>=0.18.0
+
+# Optional: Pydantic for schema validation
+# pydantic>=2.0.0
