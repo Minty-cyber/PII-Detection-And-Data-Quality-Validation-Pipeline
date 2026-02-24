@@ -1,0 +1,85 @@
+PII DETECTION REPORT
+============================================================
+
+RISK CLASSIFICATION:
+------------------------------------------------------------
+HIGH RISK PII (Direct Identifiers):
+  • Emails: 10 records (100.0%)
+  • Phone numbers: 10 records (100.0%)
+  • Names: 9 first names, 9 last names
+  • Addresses: 9 records (90.0%)
+  • Dates of birth: 9 valid records (90.0%)
+
+MEDIUM RISK PII (Sensitive Financial):
+  • Income: Financial sensitivity
+
+DETECTED PII DETAILS:
+------------------------------------------------------------
+EMAILS:
+   Found: 10/10 (100.0%)
+   Examples:  john.doe@gmail.com, jane.smith@company.com,  bob.johnson@email.com
+
+📱 PHONE NUMBERS:
+   Found: 10/10 (100.0%)
+   Format breakdown:
+      - XXX-XXX-XXXX: 7 records
+      - (XXX) XXX-XXXX: 1 records
+      - XXX.XXX.XXXX: 1 records
+      - XXXXXXXXXX: 1 records
+   Examples: 555-123-4567, 555-987-6543, (555) 234-5678
+
+👤 NAMES:
+   First names: 9/10 (90.0%)
+   Last names: 9/10 (90.0%)
+   Examples:  John,  Jane /  Doe,  Smith
+
+🏠 ADDRESSES:
+   Found: 9/10 (90.0%)
+   Examples: 123 Main St New York NY 10001
+
+🎂 DATES OF BIRTH:
+   Found: 10/10 (100.0%)
+   Valid dates: 9/10 (90.0%)
+   Examples: 1985-03-15, 1990-07-22, 1988-11-08
+
+EXPOSURE RISK ANALYSIS:
+------------------------------------------------------------
+If this dataset were breached, attackers could:
+  ⚠️  PHISHING: Attackers can send targeted phishing emails to customers
+  ⚠️  SOCIAL ENGINEERING: Phone numbers enable vishing (voice phishing) attacks
+  ⚠️  IDENTITY THEFT: Names + DOB + Address = enough to spoof identities
+  ⚠️  ACCOUNT TAKEOVER: Email + phone = password reset vulnerability
+
+BREACH IMPACT ASSESSMENT:
+------------------------------------------------------------
+Total records exposed: 10
+Complete profiles (name+contact+address/DOB): 10 (100.0%)
+Estimated damage level: HIGH
+
+A 'complete profile' enables full identity theft, account takeover,
+and targeted attacks. Each complete profile = high-value target.
+
+REQUIRED MITIGATION:
+------------------------------------------------------------
+  ✓ IMMEDIATE: Mask all PII before sharing with analytics teams
+  ✓ REQUIRED: Implement role-based access control (RBAC)
+  ✓ COMPLIANCE: Ensure GDPR/CCPA data processing agreements
+  ✓ SECURITY: Encrypt data at rest and in transit
+
+COMPLIANCE NOTES:
+------------------------------------------------------------
+  • GDPR: Personal data requires lawful basis for processing
+  • GDPR: Right to erasure ('right to be forgotten') applies
+  • CCPA: Consumers have right to know what data is collected
+  • PCI DSS: If payment data added, additional controls required
+  • HIPAA: If health data added, must comply with privacy rules
+
+IMMEDIATE RECOMMENDATIONS:
+------------------------------------------------------------
+  1. MASK PII before sharing with analytics/ML teams
+  2. Implement field-level encryption for sensitive columns
+  3. Set up access logging (who accessed what, when)
+  4. Create data retention policy (how long to keep PII)
+  5. Establish incident response plan for breaches
+  6. Conduct privacy impact assessment (PIA)
+  7. Train employees on PII handling procedures
